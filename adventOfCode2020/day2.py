@@ -1,4 +1,4 @@
-def part1_validater(password, letter, number_indicators):
+def part1_validator(password, letter, number_indicators):
     count = 0
 
     min = int(number_indicators[0])
@@ -10,7 +10,7 @@ def part1_validater(password, letter, number_indicators):
 
     return (count >= min) and (count <= max)
 
-def part2_validater(password, letter, number_indicators):
+def part2_validator(password, letter, number_indicators):
     # One indexed numbers with a zero indexed array
     a = int(number_indicators[0]) - 1
     b = int(number_indicators[1]) - 1
@@ -25,12 +25,12 @@ def line_parser(line):
     letter = line_list[1][0]
     number_indicators = line_list[0].split("-")
 
-    p1 = part1_validater(password, letter, number_indicators)
-    p2 = part2_validater(password, letter, number_indicators)
+    p1 = part1_validator(password, letter, number_indicators)
+    p2 = part2_validator(password, letter, number_indicators)
     return (p1, p2)
 
 
-def check_file():
+def check_passwords():
     path = './inputs/day2.txt'
     part1_total = 0
     part2_total = 0
@@ -48,4 +48,4 @@ def check_file():
     print("Part2:", part2_total)
 
 if __name__ == "__main__":
-    check_file()
+    check_passwords()
