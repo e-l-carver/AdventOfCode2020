@@ -18,6 +18,8 @@ def scan_landscape(vector_x, vector_y):
         for line in tree_lines:
             pattern_length = len(line)
 
+            # Instead of looping by delta y in the for loop
+            # we are skipping lines which aren't multiples of the y delta
             if (lines_crossed % vector_y) == 0:
                 # Make sure we stay within the repeating pattern
                 pattern_position = position % pattern_length
