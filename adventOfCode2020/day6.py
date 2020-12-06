@@ -14,8 +14,8 @@ def convert_form(form_input):
     for answer in form.answers:
         # Ord() returns the UNICODE value for the letter
         # This assumes that the letters are only lowercase and all valid
-        # We minus '97' which is the unicode character for 'a' so that a == 0 and so on
-        i = ord(answer) - 97
+        # We minus the unicode character for 'a' so that a == 0 and so on
+        i = ord(answer) - ord("a")
         form.full_answers[i] = True
 
     # Convert the full form into binary where each digit represents a question
@@ -73,8 +73,9 @@ def load_forms():
         read_lines = file.read().split("\n\n")
 
     for line in read_lines:
-        total_any += handle_group(line)[0]
-        total_all += handle_group(line)[1]
+        output = handle_group(line)
+        total_any += output[0]
+        total_all += output[1]
 
     print("total_any:", total_any)
     print("total_all:", total_all)
